@@ -1,6 +1,6 @@
 # PathReview Development Journal
 
-**Name:** Christian A Gomez Diaz  
+**Name:** Christian A Gomez Diaz
 **GitHub Username:** Christian101GTZ
 
 ---
@@ -11,11 +11,11 @@
 
 **Issue title:** Skill extractor fails to detect JavaScript and TypeScript
 
-**Tier:** ☑ Tier 1 ☐ Tier 2 ☐ Tier 3
+**Tier:** [x] Tier 1  [ ] Tier 2  [ ] Tier 3
 
 ### Problem Summary
 
-The skill extractor currently does not recognize JavaScript and TypeScript when they appear in a resume or profile document. As a result, these programming languages are missing from the extracted skills even though they are valid technologies. This affects the ingestion pipeline because the application may produce incomplete skill data. A successful fix will update the skill extraction logic and related tests so JavaScript and TypeScript are detected correctly.
+The skill extractor currently does not recognize JavaScript and TypeScript when they appear in a resume or profile document. As a result, these programming languages are missing from the extracted skills even though they are valid technologies. This affects the ingestion pipeline because the application may produce incomplete skill data. A successful fix will update the skill extraction logic and related tests so JavaScript and TypeScript are detected correctly. This ensures resumes containing these technologies are analyzed more accurately.
 
 ### Issue Selection Notes
 
@@ -23,6 +23,6 @@ I selected this issue because it is focused on a single part of the ingestion pi
 
 **Branch name:** `fix/148-skill-extractor-javascript-typescript`
 
-**Setup confirmation:** ☑ App runs locally at `localhost:5173`
+**Setup confirmation:** [x] App runs locally at `localhost:5173`
 
-**Cohort ledger:** ☐ Issue added to cohort ledger
+**Cohort ledger:** [x] Issue added to cohort ledger
