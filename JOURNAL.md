@@ -25,4 +25,26 @@ I selected this issue because it is focused on a single part of the ingestion pi
 
 **Setup confirmation:** [x] App runs locally at `localhost:5173`
 
-**Cohort ledger:** [x] Issue added to cohort ledger
+**Cohort ledger:** [x] Issue added to cohort ledger 
+
+
+## Week 8 — Reproduction & solution planning
+
+**Reproduction commit link:** [add after creating and pushing the reproduction commit]
+
+**Reproduction summary:**
+
+I reproduced Issue #148 by running the existing TypeScript unit test:
+
+`pytest tests/unit/test_skill_extractor.py::TestSkillExtractor::test_text_with_typescript_files -v`
+
+The test failed because the extractor did not return TypeScript for text containing TypeScript-specific syntax. I also compared extraction with and without a `.ts` filename. Without a filename, the extractor incorrectly returned Python. With `example.ts`, it returned both Python and TypeScript.
+
+**PLAN.md link:** [add after creating and pushing PLAN.md]
+
+**Walkthrough video (recommended):** Not recorded yet.
+
+**Blockers or open questions:**
+
+The Python type-annotation pattern matches `str` inside the TypeScript type `string`, creating a false Python result. I still need to determine the safest detection patterns for distinguishing JavaScript, TypeScript, and Python without introducing false positives.
+s
