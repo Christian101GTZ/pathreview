@@ -45,4 +45,35 @@ The test failed because the extractor did not return TypeScript for text contain
 
 **Blockers or open questions:**
 
-The Python type-annotation pattern matches `str` inside the TypeScript type `string`, creating a false Python result. I still need to determine the safest detection patterns for distinguishing JavaScript, TypeScript, and Python without introducing false positives.
+The Python type-annotation pattern matches `str` inside the TypeScript type `string`, creating a false Python result. I still need to determine the safest detection patterns for distinguishing JavaScript, TypeScript, and Python without introducing false positives. 
+
+## Week 9 — Solution building & PR submission
+
+### Check-in 1 (mid-week)
+
+**Current progress:**
+Reviewed the existing SkillExtractor implementation and its unit tests. I identified that JavaScript and TypeScript detection relied mainly on filenames and import statements, so code snippets without filenames were not detected correctly. I began implementing syntax-based detection for both languages.
+
+**Next steps:**
+Finish the implementation, run the relevant tests and project checks, commit the changes, open a pull request, and request feedback.
+
+**Blockers:**
+The repository contains several pre-existing unit-test failures unrelated to Issue #148. I documented the baseline failures so I could verify that my changes did not introduce additional failures.
+
+---
+
+### Check-in 2 (end of week)
+
+**PR link:** https://github.com/ascherj/pathreview/pull/546
+
+**Branch:** `fix/148-skill-extractor-javascript-typescript`
+
+**What you built:**
+Improved the SkillExtractor so it can identify JavaScript and TypeScript from code syntax instead of relying only on file extensions. The updated logic recognizes JavaScript patterns such as `require()`, `console.log()`, and variable declarations, along with TypeScript patterns such as interfaces, type annotations, type aliases, `implements`, and generic `Promise` types.
+
+**Tests added or updated:**
+I used the existing tests in `tests/unit/test_skill_extractor.py`. The JavaScript and TypeScript detection tests now pass. The full skill-extractor test file produced 15 passing tests and 3 unrelated pre-existing failures involving database and Docker detection.
+
+**Self-review confirmation:** [x] make check introduces no new failures  [x] make test-unit introduces no new failures
+
+**Draft PR feedback received from:** none
