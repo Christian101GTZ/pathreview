@@ -166,7 +166,9 @@ class SkillExtractor:
         if re.search(r"\bdef\s+\w+\s*\(", text):
             python_evidence.append("Python function definitions")
 
-        if re.search(r":\s*(int|str|float|bool|list|dict)", text):
+        # The trailing word boundary keeps TypeScript annotations such as
+        # ": string" from matching the Python "str" hint.
+        if re.search(r":\s*(int|str|float|bool|list|dict)\b", text):
             python_evidence.append("Python type annotations")
 
         if "requirements.txt" in text_lower:
